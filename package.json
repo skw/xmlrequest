@@ -1,0 +1,33 @@
+{
+	"name": "stream",
+	"preferGlobal": true,
+	"version": "0.0.1",
+	"author": "skw <shaun.kirk.wong@gmail.com>",
+	"description": "request and parse remote xml",
+	"contributors": [ 
+		{
+			"name": "Shaun Kirk Wong",
+			"email": "shaun.kirk.wong@gmail.com"
+		} 
+	],
+	"main": "./",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skw/xmlrequest"
+	},
+	"keywords": [
+		"request",
+		"libxml",
+		"zlib"
+	],
+	"dependencies" : {
+		"zlib"   :  "*",
+		"request" :  "*",
+		"libxmljs" :  "*"
+	},
+	"analyze": false,
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.10"
+	}
+}
