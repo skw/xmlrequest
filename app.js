@@ -1,11 +1,12 @@
 /*
 ------------------------------------------------------------
 # app.js
+: get xml as a parse js object
 ------------------------------------------------------------
 */ 
 
 // dependencies
-var requestxml = require('./requestxml.js');
+var reqxml = require('./utils/reqxml.js');
 
 // config
 var src = ({
@@ -15,7 +16,10 @@ var src = ({
 	url:'http://www.teamliquid.net/video/streams/?xml=1'
 });
 
-var xml = requestxml(src);
-xml.on('data', function(data){
-	console.log(data);
-});
+// request xml
+reqxml(
+	src, 
+	function(xml){
+		console.log('got xml');
+	}
+);
