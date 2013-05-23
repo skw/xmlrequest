@@ -23,7 +23,7 @@
 	"dependencies" : {
 		"zlib"   :  "*",
 		"request" :  "*",
-		"libxmljs" :  "*"
+		"xml2js" :  "*"
 	},
 	"analyze": false,
 	"license": "MIT",

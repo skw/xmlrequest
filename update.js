@@ -1,7 +1,7 @@
 /*
 ------------------------------------------------------------
-# app.js
-: get xml as a parse js object
+# update.js
+: update redis with
 ------------------------------------------------------------
 */ 
 
@@ -9,7 +9,7 @@
 var reqxml = require('./utils/reqxml.js');
 
 // config
-var src = ({
+var options = ({
 	'headers': {
 		'Accept-Encoding': 'gzip'
 	},
@@ -17,9 +17,10 @@ var src = ({
 });
 
 // request xml
-reqxml(
-	src, 
-	function(xml){
-		console.log('got xml');
-	}
-);
+reqxml(options, function(result){
+	update(result);
+});
+
+function update(streams){
+	
+}

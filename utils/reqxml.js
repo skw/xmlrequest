@@ -7,39 +7,33 @@
 
 // dependencies
 var	request = require('request'),
-		zlib 		= require('zlib'),
-		libxml 	= require('libxmljs');
+		zlib = require('zlib'),
+		parseString = require('xml2js').parseString;
 
-var reqxml;
-
-reqxml = function(options,callback){
+var reqxml = function(options,callback) {
 	
 	// make a request
-	req = function(options){
-		var res = request(
-			options, 
-			function (err,res,body){
-				if (!err){
-					return body;
-				} else {
-					console.log('error! ' + err);
-					return new Error(err);
-				}
+	req = function(options) {
+		var res = request(options, function (err,res,body) {
+			if (!err){
+				return body;
+			} else {
+				console.log(err);
+				//return new Error(err);
 			}
-		);
+		});
 		zip(res);
 	},
 	
 	// gunzip response
-	zip = function(res){
-		var	gunzip 	= zlib.createGunzip(),
-				xml 		= "";
+	zip = function(res) {
+		var	gunzip = zlib.createGunzip(), xml = "";
 				
-		gunzip.on('data', function(data){
+		gunzip.on('data', function(data) {
 			xml += data.toString();
 		}); 
 	
-		gunzip.on('end', function(){
+		gunzip.on('end', function() {
 			parse(xml);
 		});
 		res.pipe(gunzip);
@@ -47,9 +41,14 @@ reqxml = function(options,callback){
 
 	// parse xml
 	parse = function(xml){
-		//console.log(xml);
-		var parsed = libxml.parseXmlString(xml);
-		callback(xml);
+		parseString(xml, function(err,result) {
+				if (!err) {
+					callback(result);	
+				}else{
+					console.log(err);
+					//return new Error(err);
+				}
+		});	
 	},
 	
 	//init
