@@ -21,9 +21,10 @@
 		"zlib"
 	],
 	"dependencies" : {
-		"zlib"   :  "*",
-		"request" :  "*",
-		"xml2js" :  "*"
+		"zlib"   :  "x",
+		"request" :  "x",
+		"xml2js" :  "x",
+		"lodash" : "x"
 	},
 	"analyze": false,
 	"license": "MIT",
