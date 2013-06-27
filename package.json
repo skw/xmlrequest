@@ -24,7 +24,9 @@
 		"zlib"   :  "x",
 		"request" :  "x",
 		"xml2js" :  "x",
-		"lodash" : "x"
+		"lodash" : "x",
+		"express" : "x",
+		"socket.io" : "x"
 	},
 	"analyze": false,
 	"license": "MIT",
